@@ -55,7 +55,8 @@ function addPlayer() {
 
 function distributeCards(ev){
   ev.preventDefault();
-  let count = ev.target.firstElementChild.valueAsNumber ?? 1;
+  let count = ev.target.firstElementChild.valueAsNumber;
+  if(isNaN(count)) count = 1;
   let players = document.getElementsByClassName("player");
   players = [...players];
   players.forEach((player)=>{
