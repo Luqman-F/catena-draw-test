@@ -5,6 +5,8 @@ initPool();
 
 log = console.log
 
+const dice = document.getElementById("RNG");
+dice.addEventListener("submit", throwDice);
 const cardBase = document.getElementById("cardBase").cloneNode(true);
 cardBase.removeAttribute("id");
 
@@ -30,6 +32,7 @@ resetBtn.addEventListener("click", function(){
   });
   initPool();
 })
+
 function getRandomCards (count){
   let cards = []
   for (let i = 0; i < count; i++) {
@@ -51,6 +54,12 @@ function addPlayer() {
   const p = playerBase.cloneNode(true);
   p.children[0].children[1].addEventListener("click", addCards);
   document.body.append(p);
+}
+
+function throwDice(ev){
+  ev.preventDefault();
+  let rand = Math.floor(Math.random()*100);
+  ev.target.firstElementChild.value = rand;
 }
 
 function distributeCards(ev){
