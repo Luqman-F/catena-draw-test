@@ -9,6 +9,9 @@
   margin: 1em;
   display: inline-block;
 }
+.card:hover{
+  cursor: pointer;
+}
 .picked{
   opacity: .3;
 }
